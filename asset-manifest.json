@@ -1,16 +1,15 @@
 {
   "files": {
-    "main.css": "/b1ggl3s/alarm-app/static/css/main.98876ee4.css",
-    "main.js": "/b1ggl3s/alarm-app/static/js/main.a6af948b.js",
-    "static/media/Attention.mp3": "/b1ggl3s/alarm-app/static/media/Attention.cf053c6f993137ccabc3.mp3",
+    "main.css": "/b1ggl3s/alarm-app/static/css/main.848049b2.css",
+    "main.js": "/b1ggl3s/alarm-app/static/js/main.8c88bdd7.js",
     "static/media/OpenSans-VariableFont_wdth,wght.woff2": "/b1ggl3s/alarm-app/static/media/OpenSans-VariableFont_wdth,wght.50a2e9e8cc69c9ed9f4f.woff2",
     "static/media/OpenSans-Regular.woff": "/b1ggl3s/alarm-app/static/media/OpenSans-Regular.623a06b4b74a160b97e9.woff",
     "index.html": "/b1ggl3s/alarm-app/index.html",
-    "main.98876ee4.css.map": "/b1ggl3s/alarm-app/static/css/main.98876ee4.css.map",
-    "main.a6af948b.js.map": "/b1ggl3s/alarm-app/static/js/main.a6af948b.js.map"
+    "main.848049b2.css.map": "/b1ggl3s/alarm-app/static/css/main.848049b2.css.map",
+    "main.8c88bdd7.js.map": "/b1ggl3s/alarm-app/static/js/main.8c88bdd7.js.map"
   },
   "entrypoints": [
-    "static/css/main.98876ee4.css",
-    "static/js/main.a6af948b.js"
+    "static/css/main.848049b2.css",
+    "static/js/main.8c88bdd7.js"
   ]
 }
