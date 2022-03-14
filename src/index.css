@@ -9,11 +9,20 @@
 }
 
 :root {
-  --button-color: rgb(170, 150, 119);
+  /* --button-color: rgb(170, 150, 119); */
+  --button-color: rgb(52, 129, 153);
   --background: rgb(112, 189, 131);
   --textBorder: rgb(117, 85, 36);
   --timeColor: rgb(236, 233, 233);
   --hoverColor: white;
+  background-color: var(--background);
+}
+
+.dark {
+  --hoverColor: black;
+  --timeColor: rgb(236, 233, 233);
+  --button-color: rgb(255, 81, 0);
+  --background: black;
   background-color: var(--background);
 }
 
@@ -51,7 +60,16 @@
   color: var(--button-color);
 }
 
-
+.toggleButton {
+  border: 0px solid var(--button-color);
+  border-radius: 20px;
+  margin-top: 1px;
+  vertical-align: middle;
+  text-align: center;
+  background-color: transparent;
+  color: var(--hoverColor);
+  cursor: pointer;
+}
 
 .button:hover {
   background-color:var(--button-color);

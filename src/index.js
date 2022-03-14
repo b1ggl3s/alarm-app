@@ -1,7 +1,7 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';
-import mp3 from './sounds/Attention.mp3';
+import { BsSun, BsMoon } from "react-icons/bs"
 
 // Renders buttons for setting time and starting alarm in Button Row.
 function Button(props) {
@@ -108,6 +108,7 @@ function speak(text) {
     speechSynthesis.speak(msg);
 }
 
+
 // Outermost component which contains the Clock, ButtonRow and TextInput components.
 class Alarm extends React.Component {
     constructor(props) {
@@ -122,7 +123,8 @@ class Alarm extends React.Component {
         this.state = {
             time: [12, 0],
             alarmStarted: false,
-            value: ""
+            value: "",
+            darkTheme: false
         }
     };
 
@@ -142,7 +144,7 @@ class Alarm extends React.Component {
 
     };
 
-    // Stops the alarm if user deactivates alarm.
+    // Stops tts if user deactivates alarm.
     stopTimer() {
         clearTimeout(this.myTimeout);
         speechSynthesis.cancel()
@@ -174,6 +176,8 @@ class Alarm extends React.Component {
         const hour = time[0]
         const minute = time[1]
         const alarmStarted = this.state.alarmStarted
+        const className = "dark"
+        const darkTheme = this.state.darkTheme
         switch(j) {
             case 0:
                 this.setState({
@@ -207,6 +211,17 @@ class Alarm extends React.Component {
                     time: [hour, (minute + 1) % 60]
                 });
                 break;
+            case 'themeToggle':
+                if (!darkTheme) {
+                    document.documentElement.classList.add(className)
+                } else {
+                    document.documentElement.classList.remove(className)
+                }
+                this.setState({darkTheme: !darkTheme})
+                break;
+            default:
+                {};
+
             
         }
     }
@@ -216,17 +231,32 @@ class Alarm extends React.Component {
         const hour = this.state.time[0];
         const minute = this.state.time[1];
         const alarmStarted = this.state.alarmStarted;
+        const darkTheme = this.state.darkTheme;
 
         return(
-            <div className='alarm'>
-                <Clock hour={hour} minute={minute}/>
-                <ButtonRow onClick={(j) => this.handleClick(j)}
-                buttons={buttons} alarmStarted={alarmStarted}/>
-                <TextInput value={this.state.value} onChange={this.handleChange}/>
+            <div>
+                <div style={{ display: "flex", justifyContent: 'flex-end' }}>
+                    <button className="toggleButton"
+                    onClick={() => this.handleClick('themeToggle')}
+                    // style={{ margin: 'auto }}
+                    >
+                        {darkTheme ? (
+                            <BsSun color="ff0" size="24" title="Switch to light mode" />
+                        ) : (<BsMoon size="24" title="Switch to dark mode" />
+                        )}
+                    </button>
+                </div>
+                <div className='alarm'>
+                    <Clock hour={hour} minute={minute}/>
+                    <ButtonRow onClick={(j) => this.handleClick(j)}
+                    buttons={buttons} alarmStarted={alarmStarted}/>
+                    <TextInput value={this.state.value} onChange={this.handleChange}/>
+                </div>
             </div>
         );
     }
 }
+
 
 ReactDOM.render(
     <Alarm />,
